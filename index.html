@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Man: Um Novo Dia | Marvel</title>
+  <meta name="description"
+    content="É um NOVO DIA para Peter Parker. Agora, ele combate o crime em tempo integral como Homem-Aranha em um mundo que não se lembra dele.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Good Times Font via CDN -->
+  <link href="https://db.onlinewebfonts.com/c/3750ae4f553135962d46a5e916204fe5?family=Good+Times+W00+Bold"
+    rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <svg class="svgShape" width="0" height="0" style="position: absolute;">
+    <clipPath id="meu-clip" clipPathUnits="objectBoundingBox">
+      <path
+        d="M0.7694 0C0.781 0 0.7904 0.0172 0.7904 0.0385C0.7904 0.0598 0.7998 0.077 0.8114 0.077H0.9763C0.9894 0.077 1 0.0964 1 0.1204V0.9566C1 0.9806 0.9894 1 0.9763 1H0.1751C0.162 1 0.1514 0.9806 0.1514 0.9566V0.9052C0.1514 0.8812 0.1408 0.8618 0.1277 0.8618H0.0237C0.0106 0.8618 0 0.8424 0 0.8184V0.1264C0.01 0.1023 0.0106 0.0829 0.0237 0.0829H0.153C0.1655 0.0829 0.1757 0.0644 0.1757 0.0415C0.1757 0.0186 0.1858 0 0.1983 0H0.7694Z" />
+    </clipPath>
+  </svg>
+
+  <!-- Scroll Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- Section 1: Hero Section -->
+      <section class="hero-section" id="inicio">
+        <!-- Background Imagery with Red Cinematic Lighting -->
+        <div class="hero-bg-wrapper" aria-hidden="true">
+          <img src="assets/images/background_1x.webp" alt="" class="hero-bg-img">
+          <div class="hero-bg-overlay-multiply"></div>
+          <div class="hero-bg-overlay-color"></div>
+          <div class="hero-bg-overlay-glow"></div>
+          <div class="hero-bg-vignette"></div>
+        </div>
+
+        <div class="page-container">
+          <!-- Header -->
+          <header class="site-header">
+            <div class="header-left">
+              <a href="#" class="brand-link" aria-label="Marvel Spider-Man">
+                <img src="assets/images/AranhaMarvel.svg" alt="Spider-Man & Marvel" class="brand-logo">
+              </a>
+            </div>
+            <nav class="header-right">
+              <!--<a href="#proxima-secao" class="nav-link" id="nav-elenco">Elenco</a>-->
+              <a href="#trailer" class="nav-link" id="nav-trailer">Trailer</a>
+              <a href="#ingressos" class="btn-tickets" id="btn-comprar-ingressos">
+                <span>Comprar Ingressos</span>
+                <span class="btn-icon" aria-hidden="true">&#x2197;</span>
+              </a>
+            </nav>
+          </header>
+
+          <!-- Main Content / Center Strip Banner & Video Reveal -->
+          <main class="main-content">
+            <div class="synopsis-banner" aria-label="Sinopse do filme">
+              <!-- Canvas Background for animated frame sequence -->
+              <canvas id="synopsisCanvas" class="synopsis-canvas"></canvas>
+
+              <div class="banner-inner">
+                <div class="banner-logo-col movie">
+                  <img src="assets/images/SpiderManUmNovoDia.svg" alt="Spider-Man: Um Novo Dia"
+                    class="banner-movie-logo">
+                </div>
+                <div class="banner-text-col">
+                  <p class="synopsis-text synopsis-text-1" style="color: black;">
+                    É um <strong>NOVO DIA</strong> para Peter Parker. <br>
+                    Agora, ele combate o crime em tempo integral
+                    como Homem-Aranha em um mundo
+                    que não se lembra dele.
+                  </p>
+                  <p class="synopsis-text synopsis-text-2">
+                    Mas a pressão de ver seus antigos amigos
+                    seguirem em frente sem ele começa a
+                    desencadear uma mudança em Peter, uma
+                    transformação que ele talvez não consiga controlar.
+                  </p>
+                  <p class="synopsis-text synopsis-text-3">
+                    Só que essa mudança pode ser justamente
+                    a única coisa capaz de deter uma nova
+                    e chocante ameaça à cidade e às pessoas
+                    que ele ama: um vilão poderoso
+                    que ninguém consegue ver.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Reveal Mask & Custom Trailer Player -->
+            <div class="trailer-reveal-mask" id="trailerRevealMask" aria-label="Trailer do Filme">
+              <div class="trailer-video-wrapper" id="trailerVideoWrapper">
+                <video id="heroTrailerVideo" class="trailer-video" src="assets/video/trailer.mp4" autoplay muted loop
+                  playsinline preload="auto"></video>
+                <div class="trailer-overlay" id="trailerOverlay"></div>
+
+                <!-- Big Center Play Button (revealed when mask reaches 100% width) -->
+                <button class="trailer-big-play-btn" id="trailerBigPlayBtn" type="button"
+                  aria-label="Assistir ao Trailer Oficial">
+                  <div class="play-btn-pulse-ring"></div>
+                  <div class="play-btn-circle">
+                    <svg class="play-btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <span class="play-btn-text">ASSISTIR TRAILER</span>
+                </button>
+
+                <!-- Feedback Icon on Direct Video Click (Play/Pause flash) -->
+                <div class="trailer-feedback-icon" id="trailerFeedbackIcon" aria-hidden="true">
+                  <svg class="fb-icon-play" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <svg class="fb-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                </div>
+
+                <!-- Custom Video Player Controls Bar -->
+                <div class="trailer-custom-player" id="trailerCustomPlayer">
+                  <!-- Progress Bar Scrubber -->
+                  <div class="player-progress-container" id="playerProgressContainer" role="slider"
+                    aria-label="Linha do tempo do vídeo" tabindex="0">
+                    <div class="player-progress-bar" id="playerProgressBar">
+                      <div class="player-progress-buffered" id="playerProgressBuffered"></div>
+                      <div class="player-progress-fill" id="playerProgressFill"></div>
+                      <div class="player-progress-handle" id="playerProgressHandle"></div>
+                    </div>
+                  </div>
+
+                  <!-- Controls Bottom Row -->
+                  <div class="player-controls-row">
+                    <!-- Left: Play/Pause, Restart, Time Display -->
+                    <div class="player-controls-left">
+                      <button class="player-ctrl-btn" id="playerPlayPauseBtn" type="button"
+                        aria-label="Reproduzir / Pausar">
+                        <svg class="ctrl-svg icon-play" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <svg class="ctrl-svg icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                      </button>
+
+                      <button class="player-ctrl-btn" id="playerRestartBtn" type="button"
+                        aria-label="Reiniciar Trailer">
+                        <svg class="ctrl-svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path
+                            d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+                        </svg>
+                      </button>
+
+                      <div class="player-time-display">
+                        <span id="playerCurrentTime">0:00</span>
+                        <span class="player-time-slash">/</span>
+                        <span id="playerDuration">0:00</span>
+                      </div>
+                    </div>
+
+                    <!-- Right: Volume & Slider, Fullscreen -->
+                    <div class="player-controls-right">
+                      <div class="player-volume-group">
+                        <button class="player-ctrl-btn" id="playerMuteBtn" type="button" aria-label="Mudo / Volume">
+                          <svg class="ctrl-svg icon-vol-high" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                          </svg>
+                          <svg class="ctrl-svg icon-vol-mute" viewBox="0 0 24 24" fill="currentColor"
+                            style="display:none;">
+                            <path
+                              d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                          </svg>
+                        </button>
+                        <div class="player-vol-slider-box">
+                          <input type="range" class="player-vol-range" id="playerVolumeRange" min="0" max="1"
+                            step="0.05" value="1" aria-label="Controle de volume">
+                        </div>
+                      </div>
+
+                      <button class="player-ctrl-btn" id="playerFullscreenBtn" type="button"
+                        aria-label="Alternar Tela Cheia">
+                        <svg class="ctrl-svg icon-fs-enter" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                        </svg>
+                        <svg class="ctrl-svg icon-fs-exit" viewBox="0 0 24 24" fill="currentColor"
+                          style="display:none;">
+                          <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <!-- Section Area / Bottom Elements -->
+          <section class="site-section">
+            <div class="release-date-container">
+              <span class="release-label">DATA DE LANÇAMENTO</span>
+              <span class="release-value">30/09</span>
+            </div>
+
+            <div class="scroll-indicator-container">
+              <a href="#proxima-secao" class="scroll-badge" aria-label="Role para a seção elenco">
+                <img src="assets/images/Convert text to a circle figma plugin!1.svg" alt="Role a página"
+                  class="circle-text-svg">
+                <img src="assets/images/mao.svg" alt="" class="hand-icon-svg" aria-hidden="true">
+              </a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Section 2: Elenco (Cast Showcase) -->
+      <section class="cast-section" id="proxima-secao" aria-label="Elenco de Spider-Man: Um Novo Dia">
+        <!-- Ambient Background Accents -->
+        <div class="cast-bg-ambient" aria-hidden="true">
+          <div class="cast-glow-top-left"></div>
+          <div class="cast-glow-bottom-right"></div>
+        </div>
+
+        <div class="cast-container">
+          <!-- Left Column: Title, Actor Profile & Vertical Interactive Timeline -->
+          <div class="cast-info-col">
+            <!-- Section Tag / Title -->
+            <div class="cast-header-tag">
+              <h2 class="cast-title-badge">ELENCO</h2>
+            </div>
+
+            <!-- Actor Profile Information (Multi-profile layered for scrub animation) -->
+            <div class="cast-profile" id="castProfile">
+              <div class="cast-profile-item active" data-index="0">
+                <h3 class="cast-actor-name">Tom Holland</h3>
+                <p class="cast-character-name">PETER PARKER &ldquo;HOMEM-ARANHA&rdquo;</p>
+              </div>
+              <div class="cast-profile-item" data-index="1">
+                <h3 class="cast-actor-name">Zendaya</h3>
+                <p class="cast-character-name">MICHELLE &ldquo;MJ&rdquo; JONES</p>
+              </div>
+              <div class="cast-profile-item" data-index="2">
+                <h3 class="cast-actor-name">Jacob Batalon</h3>
+                <p class="cast-character-name">NED LEEDS</p>
+              </div>
+              <div class="cast-profile-item" data-index="3">
+                <h3 class="cast-actor-name">Benedict Cumberbatch</h3>
+                <p class="cast-character-name">DOUTOR ESTRANHO</p>
+              </div>
+              <div class="cast-profile-item" data-index="4">
+                <h3 class="cast-actor-name">Willem Dafoe</h3>
+                <p class="cast-character-name">NORMAN OSBORN &ldquo;DUENDE VERDE&rdquo;</p>
+              </div>
+            </div>
+
+            <!-- Vertical Cast Navigation Timeline with Spider Marker & Progress Track -->
+            <div class="cast-timeline" aria-label="Selecione um membro do elenco">
+              <div class="cast-timeline-track" id="castTimelineTrack">
+                <div class="cast-guide-line"></div>
+                <div class="cast-progress-line" id="castProgressLine"></div>
+                <!-- Spider Indicator that moves down the track -->
+                <div class="cast-spider-marker" id="castSpiderMarker">
+                  <img src="assets/images/Aranha.svg" alt="" class="cast-spider-icon" aria-hidden="true">
+                </div>
+              </div>
+
+              <ul class="cast-list" role="tablist" id="castList">
+                <li class="cast-item active" role="tab" aria-selected="true" data-index="0" data-actor="Tom Holland"
+                  data-character='PETER PARKER "HOMEM-ARANHA"'>
+                  <button type="button" class="cast-item-btn" id="cast-tab-0">
+                    <span class="cast-item-text">PETER PARKER &ldquo;HOMEM-ARANHA&rdquo;</span>
+                  </button>
+                </li>
+                <li class="cast-item" role="tab" aria-selected="false" data-index="1" data-actor="Zendaya"
+                  data-character='MICHELLE "MJ" JONES'>
+                  <button type="button" class="cast-item-btn" id="cast-tab-1">
+                    <span class="cast-item-text">MICHELLE &ldquo;MJ&rdquo; JONES</span>
+                  </button>
+                </li>
+                <li class="cast-item" role="tab" aria-selected="false" data-index="2" data-actor="Jacob Batalon"
+                  data-character="NED LEEDS">
+                  <button type="button" class="cast-item-btn" id="cast-tab-2">
+                    <span class="cast-item-text">NED LEEDS</span>
+                  </button>
+                </li>
+                <li class="cast-item" role="tab" aria-selected="false" data-index="3" data-actor="Benedict Cumberbatch"
+                  data-character="DOUTOR ESTRANHO">
+                  <button type="button" class="cast-item-btn" id="cast-tab-3">
+                    <span class="cast-item-text">DOUTOR ESTRANHO</span>
+                  </button>
+                </li>
+                <li class="cast-item" role="tab" aria-selected="false" data-index="4" data-actor="Willem Dafoe"
+                  data-character="NORMAN OSBORN / DUENDE VERDE">
+                  <button type="button" class="cast-item-btn" id="cast-tab-4">
+                    <span class="cast-item-text">NORMAN OSBORN &ldquo;DUENDE VERDE&rdquo;</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column: Cast Large Rounded Frame Showcase with Top-to-Bottom Mask Slides -->
+          <div class="cast-media-col">
+            <div class="cast-card-frame" id="castCardFrame">
+              <div class="cast-card-inner">
+                <!-- Slide 0: Base Layer (Tom Holland) -->
+                <div class="cast-slide" data-slide="0" style="z-index: 1;">
+                  <img src="assets/images/elenco/img1.webp" alt="Tom Holland como Peter Parker / Homem-Aranha"
+                    class="cast-slide-img">
+                </div>
+                <!-- Slide 1: Mask Layer 1 (Zendaya) -->
+                <div class="cast-slide" data-slide="1" style="z-index: 2;">
+                  <img src="assets/images/elenco/img2.webp" alt="Zendaya como Michelle MJ Jones" class="cast-slide-img">
+                </div>
+                <!-- Slide 2: Mask Layer 2 (Jacob Batalon) -->
+                <div class="cast-slide" data-slide="2" style="z-index: 3;">
+                  <img src="assets/images/elenco/img3.webp" alt="Jacob Batalon como Ned Leeds" class="cast-slide-img">
+                </div>
+                <!-- Slide 3: Mask Layer 3 (Benedict Cumberbatch) -->
+                <div class="cast-slide" data-slide="3" style="z-index: 4;">
+                  <img src="assets/images/elenco/img4.webp" alt="Benedict Cumberbatch como Doutor Estranho"
+                    class="cast-slide-img">
+                </div>
+                <!-- Slide 4: Mask Layer 4 (Willem Dafoe) -->
+                <div class="cast-slide" data-slide="4" style="z-index: 5;">
+                  <img src="assets/images/elenco/img5.webp" alt="Willem Dafoe como Norman Osborn / Duende Verde"
+                    class="cast-slide-img">
+                </div>
+
+                <div class="cast-card-highlight"></div>
+                <div class="cast-card-vignette"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- GSAP & Premium Plugins via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+  <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+
+  <!-- Interactive Scripts & GSAP Animation Engine -->
+  <script>
+    // Micro-interactions and buttons
+    document.getElementById('btn-comprar-ingressos')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Ingressos disponíveis em breve na pré-venda oficial!');
+    });
+
+    document.getElementById('nav-trailer')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Trailer oficial de Spider-Man: Um Novo Dia.');
+    });
+
+    // Register GSAP Plugins
+    if (typeof gsap !== 'undefined') {
+      const pluginsToRegister = [];
+      //if (typeof ScrollTrigger !== 'undefined') pluginsToRegister.push(ScrollTrigger);
+      //if (typeof ScrollSmoother !== 'undefined') pluginsToRegister.push(ScrollSmoother);
+      if (typeof SplitText !== 'undefined') pluginsToRegister.push(SplitText);
+      if (pluginsToRegister.length) gsap.registerPlugin(...pluginsToRegister);
+    }
+    /*
+        // Initialize ScrollSmoother
+        let smoother = null;
+        if (typeof ScrollSmoother !== 'undefined') {
+          try {
+            smoother = ScrollSmoother.create({
+              wrapper: '#smooth-wrapper',
+              content: '#smooth-content',
+              smooth: 1.2,
+              effects: true,
+              smoothTouch: 0.1
+            });
+          } catch (err) {
+            console.warn('ScrollSmoother notice:', err);
+          }
+        }
+    
+        // Smooth Anchor Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#' && document.querySelector(targetId)) {
+              e.preventDefault();
+              if (smoother) {
+                smoother.scrollTo(targetId, true, 'top top');
+              } else {
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+    */
+    // Preload Frames & Canvas Frame Player
+    const frameCount = 59;
+    const getFrameSrc = idx => `assets/images/frames/ezgif-frame-${String(idx + 1).padStart(3, '0')}.jpg`;
+    const frameImages = [];
+    const canvas = document.getElementById('synopsisCanvas');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    const frameSequence = { current: 0 };
+
+    function renderCanvasFrame(index) {
+      if (!ctx || !canvas) return;
+      const validIndex = Math.max(0, Math.min(frameCount - 1, Math.round(index)));
+      const img = frameImages[validIndex];
+      if (!img || !img.complete || img.naturalWidth === 0) return;
+
+      const cw = canvas.width;
+      const ch = canvas.height;
+      ctx.clearRect(0, 0, cw, ch);
+
+      // Object-fit: cover math
+      const imgRatio = img.naturalWidth / img.naturalHeight;
+      const canvasRatio = cw / ch;
+      let dw, dh, dx, dy;
+
+      if (canvasRatio > imgRatio) {
+        dw = cw;
+        dh = cw / imgRatio;
+        dx = 0;
+        dy = (ch - dh) / 2;
+      } else {
+        dh = ch;
+        dw = ch * imgRatio;
+        dx = (cw - dw) / 2;
+        dy = 0;
+      }
+
+      ctx.drawImage(img, dx, dy, dw, dh);
+    }
+
+    function resizeCanvas() {
+      canvas.width = Math.round(1920);
+      canvas.height = Math.round(1080);
+      renderCanvasFrame(frameSequence.current);
+    }
+
+    // Preload all 59 image frames
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = getFrameSrc(i);
+      img.onload = () => {
+        if (i === 0) {
+          resizeCanvas();
+          renderCanvasFrame(0);
+        }
+      };
+      frameImages.push(img);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    // SplitText Helper with Graceful Fallback
+    function splitTextChars(element) {
+      if (!element) return [];
+      if (typeof SplitText !== 'undefined') {
+        try {
+          const split = new SplitText(element, { type: 'chars,words', charsClass: 'char' });
+          return split.chars;
+        } catch (e) {
+          console.warn('SplitText plugin error, using fallback:', e);
+        }
+      }
+      // Custom fallback preserving tags (like <strong> and <br>)
+      const chars = [];
+      function walk(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          const frag = document.createDocumentFragment();
+          for (let c of text) {
+            if (c === ' ') {
+              frag.appendChild(document.createTextNode(' '));
+            } else if (c === '\n' || c === '\r') {
+              // Ignore whitespace newlines inside text node
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char';
+              span.textContent = c;
+              frag.appendChild(span);
+              chars.push(span);
+            }
+          }
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.tagName.toLowerCase() === 'br') return;
+          Array.from(node.childNodes).forEach(walk);
+        }
+      }
+      walk(element);
+      return chars;
+    }
+
+    // Setup Text Split & Timeline Animations
+    const textEl1 = document.querySelector('.synopsis-text-1');
+    const textEl2 = document.querySelector('.synopsis-text-2');
+    const textEl3 = document.querySelector('.synopsis-text-3');
+
+    const chars1 = splitTextChars(textEl1);
+    const chars2 = splitTextChars(textEl2);
+    const chars3 = splitTextChars(textEl3);
+
+    // Initial visibility
+    if (chars2.length) gsap.set(chars2, { opacity: 0 });
+    if (chars3.length) gsap.set(chars3, { opacity: 0 });
+
+    // Initial state for Trailer Reveal & Play Button
+    gsap.set('#trailerRevealMask', { width: '0%', height: '0%', autoAlpha: 1 });
+    gsap.set('#trailerBigPlayBtn', { autoAlpha: 0, scale: 0.8 });
+
+    // Pinned Hero Master Timeline
+    const heroTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero-section',
+        pin: true,
+        start: 'top top',
+        end: '+=4400',
+        scrub: 0.8,
+        invalidateOnRefresh: true
+      }
+    });
+
+    // 1. Image Frame Sequence scrubbing (0 to 10 duration)
+    heroTimeline.to(frameSequence, {
+      current: frameCount - 1,
+      ease: 'none',
+      duration: 10,
+      onUpdate: () => renderCanvasFrame(frameSequence.current)
+    }, 0);
+
+    // 2. Synchronized Text Transitions letter-by-letter in random order
+    // Text 1: loses opacity randomly
+    heroTimeline.to(chars1, {
+      opacity: 0,
+      duration: 1.4,
+      ease: 'power1.inOut',
+      stagger: {
+        amount: 1.1,
+        from: 'random'
+      }
+    }, 1.5);
+
+    // Text 2: gains opacity randomly
+    heroTimeline.to(chars2, {
+      opacity: 1,
+      duration: 1.4,
+      ease: 'power1.inOut',
+      stagger: {
+        amount: 1.1,
+        from: 'random'
+      }
+    }, 2.9);
+
+    // Text 2: loses opacity randomly
+    heroTimeline.to(chars2, {
+      opacity: 0,
+      duration: 1.4,
+      ease: 'power1.inOut',
+      stagger: {
+        amount: 1.1,
+        from: 'random'
+      }
+    }, 5.4);
+
+    // Text 3: gains opacity randomly
+    heroTimeline.to(chars3, {
+      opacity: 1,
+      duration: 1.4,
+      ease: 'power1.inOut',
+      stagger: {
+        amount: 1.1,
+        from: 'random'
+      }
+    }, 6.8);
+
+    // 3. Phase 2: Video Mask Reveal from Center & Content Push
+    // Height opens first from center
+    heroTimeline.to('#trailerRevealMask', {
+      height: '100%',
+      ease: 'power2.out',
+      duration: 1.2
+    }, 10.0);
+
+    // Width opens outwards from center
+    heroTimeline.to('#trailerRevealMask', {
+      width: '100%',
+      ease: 'power2.inOut',
+      duration: 6.0
+    }, 11.2);
+
+    // Push Left Column (Movie Logo) to the Left as mask expands
+    heroTimeline.to('.banner-logo-col', {
+      xPercent: -150,
+      opacity: 0,
+      ease: 'power2.in',
+      duration: 2.2
+    }, 12.0);
+
+    // Push Right Column (Synopsis Texts) to the Right as mask expands
+    heroTimeline.to('.banner-text-col', {
+      xPercent: 150,
+      opacity: 0,
+      ease: 'power2.in',
+      duration: 2.2
+    }, 12.0);
+
+    // Reveal Big Play Button when width hits 100%
+    heroTimeline.to('#trailerBigPlayBtn', {
+      autoAlpha: 1,
+      scale: 1,
+      ease: 'back.out(1.4)',
+      duration: 0.9
+    }, 14.6);
+
+    // Steady hold space for comfortable trailer interaction before unpinning
+    heroTimeline.to({}, { duration: 2.2 }, 15.5);
+
+    // Custom Trailer Video Player Controller
+    (function initTrailerPlayer() {
+      const video = document.getElementById('heroTrailerVideo');
+      const bigPlayBtn = document.getElementById('trailerBigPlayBtn');
+      const customPlayer = document.getElementById('trailerCustomPlayer');
+      const playPauseBtn = document.getElementById('playerPlayPauseBtn');
+      const restartBtn = document.getElementById('playerRestartBtn');
+      const muteBtn = document.getElementById('playerMuteBtn');
+      const volumeRange = document.getElementById('playerVolumeRange');
+      const fullscreenBtn = document.getElementById('playerFullscreenBtn');
+      const progressContainer = document.getElementById('playerProgressContainer');
+      const progressFill = document.getElementById('playerProgressFill');
+      const progressBuffered = document.getElementById('playerProgressBuffered');
+      const progressHandle = document.getElementById('playerProgressHandle');
+      const currentTimeEl = document.getElementById('playerCurrentTime');
+      const durationEl = document.getElementById('playerDuration');
+      const feedbackIcon = document.getElementById('trailerFeedbackIcon');
+      const videoWrapper = document.getElementById('trailerVideoWrapper');
+      const navTrailer = document.getElementById('nav-trailer');
+
+      if (!video) return;
+
+      let isScrubbing = false;
+      let idleTimeout = null;
+      let isUserPlaying = false;
+
+      function formatTime(seconds) {
+        if (isNaN(seconds) || seconds < 0) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      function updatePlayPauseIcons(isPlaying) {
+        const iconPlay = playPauseBtn?.querySelector('.icon-play');
+        const iconPause = playPauseBtn?.querySelector('.icon-pause');
+        if (iconPlay && iconPause) {
+          iconPlay.style.display = isPlaying ? 'none' : 'block';
+          iconPause.style.display = isPlaying ? 'block' : 'none';
+        }
+      }
+
+      function showFeedback(type) {
+        if (!feedbackIcon) return;
+        const fbPlay = feedbackIcon.querySelector('.fb-icon-play');
+        const fbPause = feedbackIcon.querySelector('.fb-icon-pause');
+        if (fbPlay && fbPause) {
+          fbPlay.style.display = type === 'play' ? 'block' : 'none';
+          fbPause.style.display = type === 'pause' ? 'block' : 'none';
+        }
+        feedbackIcon.classList.remove('animate');
+        void feedbackIcon.offsetWidth; // force reflow
+        feedbackIcon.classList.add('animate');
+      }
+
+      function startTrailerWithSound() {
+        video.currentTime = 0;
+        video.muted = false;
+        video.volume = parseFloat(volumeRange?.value || 1);
+        video.play().catch(e => console.warn('Play error:', e));
+
+        isUserPlaying = true;
+        bigPlayBtn?.classList.add('hidden');
+        customPlayer?.classList.add('visible');
+        updatePlayPauseIcons(true);
+        resetIdleTimer();
+      }
+
+      bigPlayBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        startTrailerWithSound();
+      });
+
+      // Play / Pause Toggle
+      function togglePlayPause() {
+        if (video.paused) {
+          video.play();
+          isUserPlaying = true;
+          updatePlayPauseIcons(true);
+          showFeedback('play');
+          bigPlayBtn?.classList.add('hidden');
+        } else {
+          video.pause();
+          updatePlayPauseIcons(false);
+          showFeedback('pause');
+        }
+        resetIdleTimer();
+      }
+
+      playPauseBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePlayPause();
+      });
+
+      // Direct Video Click
+      video.addEventListener('click', () => {
+        if (!isUserPlaying) {
+          startTrailerWithSound();
+        } else {
+          togglePlayPause();
+        }
+      });
+
+      // Restart Button
+      restartBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.currentTime = 0;
+        video.play();
+        updatePlayPauseIcons(true);
+        showFeedback('play');
+        resetIdleTimer();
+      });
+
+      // Progress & Time Updates
+      function updateProgress() {
+        if (!video.duration || isScrubbing) return;
+        const percent = (video.currentTime / video.duration) * 100;
+        if (progressFill) progressFill.style.width = `${percent}%`;
+        if (progressHandle) progressHandle.style.left = `${percent}%`;
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
+      }
+
+      function updateBuffered() {
+        if (!video.duration || !video.buffered.length) return;
+        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+        const percent = (bufferedEnd / video.duration) * 100;
+        if (progressBuffered) progressBuffered.style.width = `${percent}%`;
+      }
+
+      video.addEventListener('timeupdate', updateProgress);
+      video.addEventListener('progress', updateBuffered);
+      video.addEventListener('loadedmetadata', () => {
+        if (durationEl) durationEl.textContent = formatTime(video.duration);
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
+      });
+
+      video.addEventListener('ended', () => {
+        updatePlayPauseIcons(false);
+        if (bigPlayBtn) {
+          bigPlayBtn.classList.remove('hidden');
+          gsap.to('#trailerBigPlayBtn', { autoAlpha: 1, scale: 1, duration: 0.4 });
+        }
+      });
+
+      // Scrubber Interaction
+      function seek(e) {
+        if (!progressContainer || !video.duration) return;
+        const rect = progressContainer.getBoundingClientRect();
+        const pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        video.currentTime = pos * video.duration;
+        if (progressFill) progressFill.style.width = `${pos * 100}%`;
+        if (progressHandle) progressHandle.style.left = `${pos * 100}%`;
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
+      }
+
+      progressContainer?.addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+        isScrubbing = true;
+        seek(e);
+        const onMouseMove = (moveEvent) => seek(moveEvent);
+        const onMouseUp = () => {
+          isScrubbing = false;
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
+        };
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+      });
+
+      // Volume & Mute Controls
+      function updateVolumeUI() {
+        const volHigh = muteBtn?.querySelector('.icon-vol-high');
+        const volMute = muteBtn?.querySelector('.icon-vol-mute');
+        const isMutedOrZero = video.muted || video.volume === 0;
+
+        if (volHigh && volMute) {
+          volHigh.style.display = isMutedOrZero ? 'none' : 'block';
+          volMute.style.display = isMutedOrZero ? 'block' : 'none';
+        }
+        if (volumeRange) {
+          volumeRange.value = video.muted ? 0 : video.volume;
+        }
+      }
+
+      muteBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        if (!video.muted && video.volume === 0) video.volume = 0.5;
+        updateVolumeUI();
+        resetIdleTimer();
+      });
+
+      volumeRange?.addEventListener('input', (e) => {
+        e.stopPropagation();
+        const val = parseFloat(e.target.value);
+        video.volume = val;
+        video.muted = val === 0;
+        updateVolumeUI();
+        resetIdleTimer();
+      });
+
+      // Fullscreen Toggle
+      function toggleFullscreen() {
+        const target = videoWrapper || video;
+        const iconEnter = fullscreenBtn?.querySelector('.icon-fs-enter');
+        const iconExit = fullscreenBtn?.querySelector('.icon-fs-exit');
+
+        if (!document.fullscreenElement) {
+          if (target.requestFullscreen) target.requestFullscreen();
+          else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
+          if (iconEnter && iconExit) {
+            iconEnter.style.display = 'none';
+            iconExit.style.display = 'block';
+          }
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          if (iconEnter && iconExit) {
+            iconEnter.style.display = 'block';
+            iconExit.style.display = 'none';
+          }
+        }
+        resetIdleTimer();
+      }
+
+      fullscreenBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFullscreen();
+      });
+
+      document.addEventListener('fullscreenchange', () => {
+        const iconEnter = fullscreenBtn?.querySelector('.icon-fs-enter');
+        const iconExit = fullscreenBtn?.querySelector('.icon-fs-exit');
+        const isFs = !!document.fullscreenElement;
+        if (iconEnter && iconExit) {
+          iconEnter.style.display = isFs ? 'none' : 'block';
+          iconExit.style.display = isFs ? 'block' : 'none';
+        }
+      });
+
+      // Idle Hide Controls on Video
+      function resetIdleTimer() {
+        if (!customPlayer || !isUserPlaying || video.paused) return;
+        customPlayer.classList.remove('player-idle');
+        clearTimeout(idleTimeout);
+        idleTimeout = setTimeout(() => {
+          if (!video.paused && isUserPlaying && !isScrubbing) {
+            customPlayer.classList.add('player-idle');
+          }
+        }, 2800);
+      }
+
+      videoWrapper?.addEventListener('mousemove', resetIdleTimer);
+      videoWrapper?.addEventListener('mouseenter', resetIdleTimer);
+      customPlayer?.addEventListener('mouseenter', () => clearTimeout(idleTimeout));
+
+      // Navbar Trailer Link Navigation
+      navTrailer?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (heroTimeline && heroTimeline.scrollTrigger) {
+          const st = heroTimeline.scrollTrigger;
+          const targetPos = st.start + (st.end - st.start) * (15.5 / 17.7);
+          /*        if (smoother) {
+                      smoother.scrollTo(targetPos, true);
+                    } else {
+                      window.scrollTo({ top: targetPos, behavior: 'smooth' });
+                    }*/
+        }
+      });
+    })();
+
+    // Initial render
+    window.addEventListener('load', () => {
+      resizeCanvas();
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+
+    // =========================================================================
+    // Cast Section Pinned Scrub Animation Engine
+    // =========================================================================
+    (function initCastPinnedScroll() {
+      const castSection = document.querySelector('.cast-section');
+      const castSlides = document.querySelectorAll('.cast-slide');
+      const castProfileItems = document.querySelectorAll('.cast-profile-item');
+      const castListItems = document.querySelectorAll('.cast-item');
+      const spiderMarker = document.getElementById('castSpiderMarker');
+      const progressLine = document.getElementById('castProgressLine');
+      const castList = document.getElementById('castList');
+      const navElenco = document.getElementById('nav-elenco');
+
+      if (!castSection || !castSlides.length) return;
+
+      // Helper function to get exact Y position of item center relative to timeline track
+      function getSpiderYForIndex(idx) {
+        if (!castListItems[idx] || !castList || !spiderMarker) return 0;
+        const listRect = castList.getBoundingClientRect();
+        const itemRect = castListItems[idx].getBoundingClientRect();
+        return (itemRect.top - listRect.top) + (itemRect.height / 2) - (spiderMarker.offsetHeight / 2);
+      }
+
+      // Initial positions setup
+      castSlides.forEach((slide, idx) => {
+        gsap.set(slide, { height: idx === 0 ? '100%' : '0%' });
+      });
+
+      castProfileItems.forEach((prof, idx) => {
+        gsap.set(prof, { autoAlpha: idx === 0 ? 1 : 0, y: idx === 0 ? 0 : 16 });
+      });
+
+      function updateActiveItemUI(activeIndex) {
+        castListItems.forEach((item, idx) => {
+          const isActive = idx === activeIndex;
+          item.classList.toggle('active', isActive);
+          item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      const spiderTracker = { y: 0 };
+
+      function updateSpiderDOM(val) {
+        if (spiderMarker) {
+          spiderMarker.style.transform = `translateY(${val}px)`;
+        }
+        if (progressLine) {
+          progressLine.style.height = `${Math.max(0, val + (spiderMarker ? spiderMarker.offsetHeight / 2 : 11))}px`;
+        }
+      }
+
+      let yPositions = [0, 50, 100, 150, 200];
+      function calculatePositions() {
+        yPositions = Array.from(castListItems).map((_, i) => getSpiderYForIndex(i));
+        if (spiderMarker && castListItems[0]) {
+          spiderTracker.y = yPositions[0];
+          updateSpiderDOM(yPositions[0]);
+        }
+      }
+
+      window.addEventListener('load', calculatePositions);
+      window.addEventListener('resize', calculatePositions);
+      setTimeout(calculatePositions, 150);
+
+      const castTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.cast-section',
+          pin: true,
+          start: 'top top',
+          end: '+=4500',
+          scrub: 0.8,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const prog = self.progress;
+            let activeIdx = 0;
+            if (prog >= 0.82) activeIdx = 4;
+            else if (prog >= 0.58) activeIdx = 3;
+            else if (prog >= 0.35) activeIdx = 2;
+            else if (prog >= 0.12) activeIdx = 1;
+            updateActiveItemUI(activeIdx);
+          }
+        }
+      });
+
+      // Slices for each transition
+      const steps = [
+        { start: 1.5, end: 4.5, fromIdx: 0, toIdx: 1 },
+        { start: 5.5, end: 8.5, fromIdx: 1, toIdx: 2 },
+        { start: 9.5, end: 12.5, fromIdx: 2, toIdx: 3 },
+        { start: 13.5, end: 16.5, fromIdx: 3, toIdx: 4 }
+      ];
+
+      steps.forEach((step) => {
+        const { start, end, fromIdx, toIdx } = step;
+        const dur = end - start;
+
+        // Top-to-Bottom Mask expansion for toIdx slide
+        if (castSlides[toIdx]) {
+          castTimeline.to(castSlides[toIdx], {
+            height: '100%',
+            ease: 'none',
+            duration: dur
+          }, start);
+        }
+
+        // Profile text cross-fade
+        if (castProfileItems[fromIdx]) {
+          castTimeline.to(castProfileItems[fromIdx], {
+            autoAlpha: 0,
+            y: -14,
+            ease: 'power1.inOut',
+            duration: dur * 0.4
+          }, start);
+        }
+
+        if (castProfileItems[toIdx]) {
+          castTimeline.to(castProfileItems[toIdx], {
+            autoAlpha: 1,
+            y: 0,
+            ease: 'power1.inOut',
+            duration: dur * 0.4
+          }, start + dur * 0.4);
+        }
+
+        // Spider Tracker & Progress Line interpolation
+        castTimeline.to(spiderTracker, {
+          y: () => yPositions[toIdx] || getSpiderYForIndex(toIdx),
+          ease: 'power1.inOut',
+          duration: dur,
+          onUpdate: () => updateSpiderDOM(spiderTracker.y)
+        }, start);
+      });
+
+      // Hold end
+      castTimeline.to({}, { duration: 1.5 }, 16.5);
+
+      // Click on timeline tabs to smooth scroll to that actor
+      const itemScrollRatios = [0.03, 0.28, 0.50, 0.72, 0.95];
+      castListItems.forEach((item, idx) => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (castTimeline && castTimeline.scrollTrigger) {
+            const st = castTimeline.scrollTrigger;
+            const target = st.start + (st.end - st.start) * itemScrollRatios[idx];
+            /*            if (smoother) {
+                          smoother.scrollTo(target, true);
+                        } else {
+                          window.scrollTo({ top: target, behavior: 'smooth' });
+                        }*/
+          }
+        });
+      });
+
+      // Header Elenco Link
+      navElenco?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (castTimeline && castTimeline.scrollTrigger) {
+          const st = castTimeline.scrollTrigger;
+          /*if (smoother) {
+            smoother.scrollTo(st.start, true);
+          } else {
+            window.scrollTo({ top: st.start, behavior: 'smooth' });
+          }*/
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
