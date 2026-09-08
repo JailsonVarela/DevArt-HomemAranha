@@ -362,11 +362,6 @@
       alert('Ingressos disponíveis em breve na pré-venda oficial!');
     });
 
-    document.getElementById('nav-trailer')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Trailer oficial de Spider-Man: Um Novo Dia.');
-    });
-
     // Register GSAP Plugins
     if (typeof gsap !== 'undefined') {
       const pluginsToRegister = [];
@@ -889,15 +884,8 @@
       // Navbar Trailer Link Navigation
       navTrailer?.addEventListener('click', (e) => {
         e.preventDefault();
-        if (heroTimeline && heroTimeline.scrollTrigger) {
-          const st = heroTimeline.scrollTrigger;
-          const targetPos = st.start + (st.end - st.start) * (15.5 / 17.7);
-          /*        if (smoother) {
-                      smoother.scrollTo(targetPos, true);
-                    } else {
-                      window.scrollTo({ top: targetPos, behavior: 'smooth' });
-                    }*/
-        }
+        window.scrollTo("", 4275.2001953125);
+        startTrailerWithSound();
       });
     })();
 
