@@ -181,10 +181,14 @@ body {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
-.header-right {
+.header-right,
+nav.header-right,
+nav .header-right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .nav-link {
@@ -226,14 +230,16 @@ body {
   font-size: 14.5px;
   font-weight: 600;
   letter-spacing: 0.2px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
 }
 
 .btn-tickets .btn-icon {
@@ -801,11 +807,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0px;
+  flex-shrink: 0;
 }
 
 .release-label {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #d8d8d8;
   letter-spacing: 2.2px;
@@ -1218,7 +1225,11 @@ body {
    ========================================================================== */
 @media (max-width: 1200px) {
   .site-header {
-    padding: 28px 40px 16px 40px;
+    padding: 20px 22px 16px 22px;
+  }
+
+  .brand-logo {
+    height: 36px;
   }
 
   .synopsis-banner {
@@ -1226,7 +1237,7 @@ body {
   }
 
   .site-section {
-    padding: 16px 40px 32px 40px;
+    padding: 16px 20px 20px 20px;
   }
 
   .banner-movie-logo {
@@ -1242,8 +1253,16 @@ body {
     width: 320px;
   }
 
+  .release-date-container {
+    align-self: flex-end;
+  }
+
+  .release-label {
+    width: min-content;
+  }
+
   .release-value {
-    font-size: 70px;
+    font-size: clamp(36px, 4vw, 54px);
   }
 
   .scroll-badge {
@@ -1272,19 +1291,15 @@ body {
 
 @media (max-width: 900px) {
   .site-header {
-    padding: 24px 24px 16px 24px;
+    padding: 20px 24px 16px 24px;
   }
 
   .brand-logo {
-    height: 36px;
-  }
-
-  .header-right {
-    gap: 18px;
+    height: 30px;
   }
 
   .btn-tickets {
-    padding: 8px 18px;
+    padding: 7px 16px;
     font-size: 13.5px;
   }
 
@@ -1319,11 +1334,22 @@ body {
   }
 
   .site-section {
-    padding: 16px 24px 28px 24px;
+    padding: 18px 20px 20px 20px;
+  }
+
+  .release-date-container {
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+    align-self: flex-end;
+  }
+
+  .release-label {
+    width: min-content;
   }
 
   .release-value {
-    font-size: 58px;
+    font-size: clamp(35px, 28px, 54px);
   }
 
   .scroll-badge {
@@ -1375,17 +1401,130 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .site-header {
-    padding: 20px 16px;
+    padding: 20px 20px;
   }
 
   .brand-logo {
-    height: 30px;
+    height: 28px;
+  }
+
+  .nav-link {
+    font-size: 13.5px;
+    padding: 4px 2px;
+  }
+
+  .btn-tickets {
+    padding: 6px 14px;
+    font-size: 13px;
+    min-height: 38px;
+  }
+
+  .site-section {
+    padding: 14px 20px 22px 20px;
+  }
+
+  .release-date-container {
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+    align-self: flex-end;
+  }
+
+  .release-label {
+    width: min-content;
+    font-size: clamp(10px, 1vw, 30px);
+  }
+
+  .release-value {
+    font-size: clamp(30px, 25px, 44px);
+  }
+
+  .scroll-badge {
+    width: 88px;
+    height: 88px;
+  }
+
+  .hand-icon-svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 615px) {
+  .site-header {
+    padding: 18px 20px;
+  }
+
+  .brand-logo {
+    height: 24px;
+  }
+
+  .nav-link {
+    font-size: 13.5px;
+    padding: 4px 2px;
+  }
+
+  .btn-tickets {
+    padding: 6px 14px;
+    font-size: 13px;
+    min-height: 38px;
+  }
+
+  .site-section {
+    padding: 14px 20px 22px 20px;
+  }
+
+  .release-date-container {
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+    align-self: center;
+  }
+
+  .release-label {
+    display: none;
+  }
+
+  .release-value {
+    font-size: clamp(23px, 24px, 46px);
+    transform: rotate(-90deg)
+  }
+
+  .scroll-badge {
+    width: 88px;
+    height: 88px;
+  }
+
+  .hand-icon-svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 16px 14px;
+  }
+
+  .brand-logo {
+    height: 22px;
   }
 
   .nav-link {
     display: none;
+  }
+
+  .btn-tickets {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 36px;
+    gap: 4px;
+  }
+
+  .btn-tickets .btn-icon {
+    font-size: 14px;
   }
 
   .synopsis-banner {
@@ -1401,19 +1540,42 @@ body {
   }
 
   .site-section {
-    padding: 16px 16px 24px 16px;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    text-align: center;
+    padding: 12px 20px 20px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: 12px;
+    text-align: left;
   }
 
   .release-date-container {
-    align-items: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+    align-self: center;
+  }
+
+  .release-label {
+    font-size: 9.5px;
+    letter-spacing: 1.3px;
   }
 
   .release-value {
-    font-size: 52px;
+    font-size: clamp(20px, 4.5vw, 30px);
+    line-height: 0.95;
+    margin-top: 2px;
+    transform: rotate(-90deg)
+  }
+
+  .scroll-badge {
+    width: 74px;
+    height: 74px;
+  }
+
+  .hand-icon-svg {
+    width: 28px;
+    height: 28px;
   }
 
   .trailer-custom-player {
@@ -1458,5 +1620,55 @@ body {
 
   .cast-card-frame {
     border-radius: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    padding: 12px 10px;
+  }
+
+  .brand-logo {
+    height: 20px;
+  }
+
+  .btn-tickets {
+    padding: 5px 9px;
+    font-size: 11px;
+    min-height: 32px;
+    gap: 3px;
+  }
+
+  .btn-tickets .btn-icon {
+    font-size: 12px;
+  }
+
+  .site-section {
+    padding: 22px 20px 22px 14px;
+    gap: 8px;
+  }
+
+  .release-date-container {
+    gap: 1px;
+    align-self: center;
+  }
+
+  .release-label {
+    font-size: 8.5px;
+    letter-spacing: 1px;
+  }
+
+  .release-value {
+    font-size: 20px;
+  }
+
+  .scroll-badge {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hand-icon-svg {
+    width: 22px;
+    height: 22px;
   }
 }
