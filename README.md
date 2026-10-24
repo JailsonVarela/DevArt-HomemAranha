@@ -11,6 +11,8 @@
 - Antigravity IDE
 
 ### Estrutura do Projeto:
+
+```
 .
 ├── Frame 1.png
 ├── HERO.png
@@ -42,4 +44,4 @@
 │       └── trailer.mp4
 ├── index.html
 └── style.css
-
+```
