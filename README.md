@@ -1,14 +1,10 @@
 # 🕷️ Homem-Aranha Um Novo Dia
 
-Landing page inspirada no universo cinematográfico do **Homem-Aranha**, desenvolvida no âmbito do projeto **DevArt 3.0**. O objetivo é criar uma experiência visual moderna e envolvente, combinando elementos gráficos, animações e conteúdos multimédia.
-
-## 🎯 Objetivo
-
-Desenvolver uma página Web com um design atrativo, inspirada no universo do Homem-Aranha, explorando técnicas de desenvolvimento frontend e integração de recursos visuais com IA.
+Landing page inspirada no universo cinematográfico do **Homem-Aranha Um Novo Dia**, desenvolvida no âmbito do projeto **DevArt 3.0**. O objetivo é criar uma experiência visual moderna e envolvente, combinando elementos gráficos, animações e conteúdos multimédia com auxilio da IA.
 
 ## 🛠️ Tecnologias e Ferramentas
 
-- **Figma** - design visual
+- [**Figma**](https://www.figma.com/design/MUEjdmPRztkBeYZuckQADr/O-Homem-Aranha-with-DevArt?node-id=0-1&t=5ZnCcs42jWD02MVc-0) - design visual e protótipos.
 - **HTML5** — estrutura e organização do conteúdo.
 - **CSS3** — estilos, layout e apresentação visual.
 - **JavaScript** — interatividade e comportamento dinâmico.
@@ -59,18 +55,11 @@ A pasta `assets/` reúne os recursos visuais e multimédia utilizados na página
 
 Não é necessária uma instalação de dependências através de npm, desde que o projeto não utilize ferramentas adicionais além das indicadas.
 
-<!--
 ## 🖼️ Demonstração
 
-Adiciona aqui capturas de ecrã da página para apresentar o design e as principais secções.
+![Página inicial](./evidencias/Homem-Aranha-hero-section1.png)
+![Pagina Elenco](./evidencias/Homem-Aranha-cast-section2.png)
 
-Exemplo:
-
-```markdown
-![Página inicial]()
-```
-Utiliza uma captura de ecrã real da página inicial se a imagem de fundo não representar a interface completa.
--->
 
 ## 🎓 Contexto do Projeto
 
