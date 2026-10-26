@@ -1,4 +1,4 @@
-# 🕷️ Homem-Aranha — Landing Page
+# 🕷️ Homem-Aranha Um Novo Dia
 
 Landing page inspirada no universo cinematográfico do **Homem-Aranha**, desenvolvida no âmbito do projeto **DevArt 3.0**. O objetivo é criar uma experiência visual moderna e envolvente, combinando elementos gráficos, animações e conteúdos multimédia.
 
